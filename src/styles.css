@@ -1,0 +1,9 @@
+#game {
+  display: none;
+}
+
+#letterDump, #guessesLeft {
+  font-variant: small-caps;
+  font-size: 20px;
+  color: green;
+}

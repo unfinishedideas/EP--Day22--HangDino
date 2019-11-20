@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DinoMAn!</title>
+  </head>
+    <div class="container">
+      <div class="button">
+        <button id="startButton" type="button" name="button">Start the game here</button>
+      </div>
+
+      <div id="game">
+        <div id="display">
+          <div id="wordDisplay">
+            <h1>Guess the word!</h1>
+            <h2 id="wordDump"><!--Main Word Display Here --></h2>
+          </div>
+          <div id="spentLetters">
+            <h3>Letters Tried: <span id="letterDump"><!--Letters Tried Here--></span></h3>
+            <h3>Guesses Left: <span id="guessesLeft"><!--Number of guesses left here--></span></h3>
+          </div>
+
+        </div>
+        <form class="guesses">
+          <input id="letterInput" type="text" maxlength="1">
+          <button type="submit" name="button">Guess now</button>
+        </form>
+      </div> <!-- Close Game Div -->
+
+    </div> <!-- Close Container -->
+  <body>
+
+
+  </body>
+</html>
