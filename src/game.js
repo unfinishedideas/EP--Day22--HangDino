@@ -2,7 +2,8 @@ export class Game{
   constructor(dinoWord){
     this.dinoWord = dinoWord;
     // Maybe reverse this? so it adds up and if you get a certain number wrong it fails you
-    this.triesLeft = 14;
+    this.triesLeft = 6;
+    this.wrongAttempts = 0;
   }
   makeArrays (){
     this.dinoWord = this.dinoWord.toUpperCase();
@@ -18,7 +19,6 @@ export class Game{
     if (letter.match(regex) && letter.length >= 1 && !this.letterArray.includes(letter)){
       this.letterArray.push(letter);
       letter = letter.toUpperCase();
-      this.triesLeft --;
 
       // Check the dinoWord for the letter
       if(this.answerArray.includes(letter)){
@@ -30,6 +30,7 @@ export class Game{
         return true;
       }
       else{
+        this.wrongAttempts++;
         return false;
       }
     } else {
@@ -43,7 +44,7 @@ export class Game{
     return this.letterArray;
   }
   loseCheck(){
-    if(this.triesLeft <= 0){
+    if(this.wrongAttempts === 6){
       return true;
     }
     else {
@@ -51,7 +52,19 @@ export class Game{
     }
   }
   winCheck(){
-    //check if currentArray === answerArray
+    let answerString = this.answerArray.toString();
+    let currentString = this.currentArray.toString();
+
+    if(answerString === currentString) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  returnWord(){
+    let returnString = this.dinoWord.toLowerCase();
+    return returnString.charAt(0).toUpperCase() + returnString.slice(1);
   }
 
 }
