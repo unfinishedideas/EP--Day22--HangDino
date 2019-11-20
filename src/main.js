@@ -22,8 +22,10 @@ $(document).ready(function(){
       newGame.makeArrays();
       $('#wordDump').text(newGame.getArray());
       $("#startButton").hide();
+      $(".guesses").show();
       $("#game").show();
-      $('#guessesLeft').text(newGame.triesLeft);
+      $('#letterDump').text(newGame.getUsedLetters());
+      $('#guessesLeft').text(newGame.triesLeft-newGame.wrongAttempts);
     }
   });
 
@@ -39,10 +41,14 @@ $(document).ready(function(){
     if (newGame.loseCheck()){
       $('#wordDump').text(newGame.returnWord());
       console.log("You lose");
+      $("#startButton").show();
+      $(".guesses").hide();
     }
     else if (newGame.winCheck()){
       $('#wordDump').text(newGame.returnWord());
       console.log("You win!");
+      $("#startButton").show();
+      $(".guesses").hide();
     }
 
 
